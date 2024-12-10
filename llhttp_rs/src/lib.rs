@@ -309,6 +309,13 @@ impl Parser {
             llhttp_resume_after_upgrade(&mut self.inner as *mut _);
         }
     }
+
+    /// reset resets the parser back to the start state
+    pub fn reset(&mut self) {
+        unsafe {
+            llhttp_reset(&mut self.inner as *mut _);
+        }
+    }
 }
 
 impl Default for Parser {
